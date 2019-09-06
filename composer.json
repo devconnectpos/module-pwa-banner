@@ -1,5 +1,5 @@
 {
-	"name": "connectpos/module-setting",
+	"name": "connectpos/module-pwa-banner",
 	"description": "N/A",
 	"type": "magento2-module",
 	"version": "19.09.06",
@@ -22,7 +22,7 @@
 			"registration.php"
 		],
 		"psr-4": {
-			"SM\\Setting\\": ""
+			"SM\\PWABanner\\": ""
 		}
 	}
 	
