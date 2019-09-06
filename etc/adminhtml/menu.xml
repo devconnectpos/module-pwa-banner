@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="SM_PWA" title="PWA Settings" module="SM_PWABanner" sortOrder="20" dependsOnModule="SM_PWABanner" resource="SM_PWABanner::banner" parent="Magento_Backend::system"/>
+        <add id="SM_PWABanner::banner" title="PWA Banner" module="SM_PWABanner" action="adminhtml/banner" parent="SM_PWA" sortOrder="20" dependsOnModule="SM_PWABanner" resource="SM_PWABanner::banner"/>
+    </menu>
+</config>
