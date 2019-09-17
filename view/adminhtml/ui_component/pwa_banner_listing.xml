@@ -24,6 +24,9 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">banner_id</item>
+                    </item>
                 </item>
             </argument>
         </argument>
@@ -44,6 +47,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">banner_id</item>
                         <item name="namespace" xsi:type="string">pwa_banner_listing</item>
                     </item>
                 </item>
@@ -67,6 +71,7 @@
                     <item name="provider" xsi:type="string">pwa_banner_listing.pwa_banner_listing_data_source</item>
                     <item name="chipsProvider" xsi:type="string">pwa_banner_listing.pwa_banner_listing.listing_top.listing_filters_chips</item>
                     <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">banner_id</item>
                         <item name="provider" xsi:type="string">pwa_banner_listing.pwa_banner_listing.listing_top.bookmarks</item>
                         <item name="namespace" xsi:type="string">current.search</item>
                     </item>
@@ -75,9 +80,13 @@
         </filterSearch>
         <filters name="listing_filters">
             <argument name="data" xsi:type="array">
+                <item name="js_config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                </item>
                 <item name="config" xsi:type="array">
                     <item name="columnsProvider" xsi:type="string">pwa_banner_listing.pwa_banner_listing.banner_columns</item>
                     <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">banner_id</item>
                         <item name="provider" xsi:type="string">pwa_banner_listing.pwa_banner_listing.listing_top.bookmarks</item>
                         <item name="namespace" xsi:type="string">current.filters</item>
                     </item>
@@ -99,7 +108,11 @@
                 <item name="observers" xsi:type="array">
                     <item name="column" xsi:type="string">column</item>
                 </item>
+                <item name="storageConfig" xsi:type="array">
+                    <item name="indexField" xsi:type="string">banner_id</item>
+                </item>
             </argument>
+            <argument name="primaryFieldName" xsi:type="string">banner_id</argument>
         </filters>
         <massaction name="listing_massaction">
             <argument name="data" xsi:type="array">
@@ -113,7 +126,7 @@
                     <item name="config" xsi:type="array">
                         <item name="type" xsi:type="string">delete</item>
                         <item name="label" xsi:type="string" translate="true">Delete</item>
-                        <item name="url" xsi:type="url" path="adminhtml/banner/massDelete"/>
+                        <item name="url" xsi:type="url" path="adminhtml/pwabanner/massDelete"/>
                         <item name="confirm" xsi:type="array">
                             <item name="title" xsi:type="string" translate="true">Delete items</item>
                             <item name="message" xsi:type="string" translate="true">Are you sure you wan't to delete selected items?</item>
@@ -126,7 +139,7 @@
                     <item name="config" xsi:type="array">
                         <item name="type" xsi:type="string">disable</item>
                         <item name="label" xsi:type="string" translate="true">Disable</item>
-                        <item name="url" xsi:type="url" path="adminhtml/banner/massDisable"/>
+                        <item name="url" xsi:type="url" path="adminhtml/pwabanner/massDisable"/>
                     </item>
                 </argument>
             </action>
@@ -135,7 +148,7 @@
                     <item name="config" xsi:type="array">
                         <item name="type" xsi:type="string">enable</item>
                         <item name="label" xsi:type="string" translate="true">Enable</item>
-                        <item name="url" xsi:type="url" path="adminhtml/banner/massEnable"/>
+                        <item name="url" xsi:type="url" path="adminhtml/pwabanner/massEnable"/>
                     </item>
                 </argument>
             </action>
@@ -145,6 +158,7 @@
                 <item name="config" xsi:type="array">
                     <item name="storageConfig" xsi:type="array">
                         <item name="provider" xsi:type="string">pwa_banner_listing.pwa_banner_listing.listing_top.bookmarks</item>
+                        <item name="indexField" xsi:type="string">banner_id</item>
                         <item name="namespace" xsi:type="string">current.paging</item>
                     </item>
                     <item name="selectProvider" xsi:type="string">pwa_banner_listing.pwa_banner_listing.banner_columns.ids</item>
@@ -171,6 +185,7 @@
                     </item>
                     <item name="storageConfig" xsi:type="array">
                         <item name="provider" xsi:type="string">pwa_banner_listing.pwa_banner_listing.listing_top.bookmarks</item>
+                        <item name="indexField" xsi:type="string">banner_id</item>
                         <item name="root" xsi:type="string">columns.${ $.index }</item>
                         <item name="namespace" xsi:type="string">current.${ $.storageConfig.root}</item>
                     </item>
@@ -191,6 +206,7 @@
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">textRange</item>
                     <item name="sorting" xsi:type="string">asc</item>
+                    <item name="indexField" xsi:type="string">banner_id</item>
                     <item name="label" xsi:type="string" translate="true">ID</item>
                 </item>
             </argument>
@@ -211,6 +227,7 @@
                 <item name="options" xsi:type="object">Magento\Cms\Model\Page\Source\IsActive</item>
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">select</item>
+                    <item name="indexField" xsi:type="string">banner_id</item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
                     <item name="editor" xsi:type="string">select</item>
                     <item name="dataType" xsi:type="string">select</item>
@@ -223,6 +240,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">dateRange</item>
+                    <item name="indexField" xsi:type="string">banner_id</item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
                     <item name="dataType" xsi:type="string">date</item>
                     <item name="label" xsi:type="string" translate="true">Created At</item>
@@ -234,6 +252,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">dateRange</item>
+                    <item name="indexField" xsi:type="string">banner_id</item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
                     <item name="dataType" xsi:type="string">date</item>
                     <item name="label" xsi:type="string" translate="true">Modified</item>
@@ -255,7 +274,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="indexField" xsi:type="string">banner_id</item>
-                    <item name="viewUrlPath" xsi:type="string">adminhtml/banner/edit</item>
+                    <item name="viewUrlPath" xsi:type="string">adminhtml/pwabanner/edit</item>
                     <item name="urlEntityParamName" xsi:type="string">banner_id</item>
                 </item>
             </argument>
