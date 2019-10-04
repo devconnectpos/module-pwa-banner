@@ -112,7 +112,7 @@ class StoreView extends Column
         if (!is_array($origStores)) {
             $origStores = [$origStores];
         }
-        if (in_array(0, $origStores) && count($origStores) == 1) {
+        if (in_array(0, $origStores) && is_array($origStores) && count($origStores) == 1) {
             return __('All Store Views');
         }
 
