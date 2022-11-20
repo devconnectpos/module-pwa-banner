@@ -100,7 +100,7 @@ class StoreView extends Column
     protected function prepareItem(array $item)
     {
         $content = '';
-        $item[$this->storeKey] = explode(',', $item[$this->storeKey]);
+        $item[$this->storeKey] = explode(',', (string)$item[$this->storeKey]);
         if (!empty($item[$this->storeKey])) {
             $origStores = $item[$this->storeKey];
         }
