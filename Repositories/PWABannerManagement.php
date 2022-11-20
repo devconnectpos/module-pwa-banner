@@ -96,7 +96,7 @@ class PWABannerManagement extends ServiceAbstract
             foreach ($collection as $banner) {
                 if($i < $config_active_banners) {
                     $stores = $banner->getData('store');
-                    $stores = explode(',', $stores);
+                    $stores = explode(',', (string)$stores);
                     if(in_array('0', $stores) || in_array($storeId, $stores)) {
                         $b = new PWABanner();
                         if (is_file(
@@ -129,9 +129,9 @@ class PWABannerManagement extends ServiceAbstract
         $collection = $this->_bannerFactory->create()->getCollection();
         $collection->addFieldToFilter('is_active', \SM\PWABanner\Model\Status::STATUS_ACTIVED);
         $collection->getSelect()->order('created_at desc');
-        $collection->setCurPage(is_nan($searchCriteria->getData('currentPage')) ? 1 : $searchCriteria->getData('currentPage'));
+        $collection->setCurPage(is_nan((float)$searchCriteria->getData('currentPage')) ? 1 : $searchCriteria->getData('currentPage'));
         $collection->setPageSize(
-            is_nan($searchCriteria->getData('pageSize')) ? DataConfig::PAGE_SIZE_LOAD_CUSTOMER : $searchCriteria->getData('pageSize')
+            is_nan((float)$searchCriteria->getData('pageSize')) ? DataConfig::PAGE_SIZE_LOAD_CUSTOMER : $searchCriteria->getData('pageSize')
         );
 
         return $collection;
